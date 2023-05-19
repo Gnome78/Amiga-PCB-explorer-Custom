@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta property="og:title" content="Amiga PCB Explorer Custom">
+
+	<title>Amiga PCB Explorer Custom V1.0beta</title>
+	
+	<link id="svg_stylesheet" rel="stylesheet" type="text/css" href="bootstrap/css/green.css">
+	<link id="pcb_stylesheet" rel="stylesheet" type="text/css" href="bootstrap/css/pcb.css">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<link href="bootstrap/css/bootstrap-dialog.min.css" rel="stylesheet">
+ 	<link href="bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
+ 	<link href="bootstrap/css/slide.css" rel="stylesheet">
+ 	
+	<script src="bootstrap/js/jquery-3.6.1.min.js"></script>
+	<script src="bootstrap/js/jquery.js"></script>
+	<script src="bootstrap/js/jquery-ui.js"></script>
+	<script src="bootstrap/js/bootstrap-select.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="bootstrap/js/bootstrap-dialog.min.js"></script>
+	<script src="bootstrap/js/base.js"></script>
+
+</head>
+
+<body style="padding-right: 0px;" class="modal-open">
+<div id="guru_modal" style="display: none;"></div>
+<div id="guru_outer" style="display: none;"></div>
+<div id="loaderDiv" class="navbar-form"></div> 
+	
+		<div class="modal fade" id="amigapcb-info-modal" tabindex="-1" role="dialog" aria-labelledby="amigapcb-info-modal_title" style="display: none;">
+			<div class="modal-dialog" role="document" style="top:calc(50% - 50px);">
+				<div class="modal-content">
+					<div class="modal-header amigapcb-modal-header">
+						<h4 class="modal-title" id="amigapcb-info-modal_title">PLEASE WAIT LOADING</h4>
+					</div>
+		
+					<div class="modal-body">
+						<div class="progress">
+							<div id="amigapcb-info-progressbar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 100%;">100%</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="amigapcb-messagebox" tabindex="-1" role="dialog" style="z-index: 10000;">
+			<div class="modal-dialog" role="document" style="top:calc(50% - 200px); height: 200px; width: 400px;">
+				<div class="modal-content">
+					<div class="modal-header amigapcb-modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+						<h4 class="modal-title"><b>System message</b></h4>
+					</div>
+					<div class="modal-body">
+						<div id="amigapcb-messagebox_text" style="font-size: 12pt;">&nbsp;</div>
+					</div>
+					<div style="padding: 15px; text-align: center;">
+						<button type="button" class="btn btn-primary" style="width: 100px;" data-dismiss="modal">OK</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+				<div style="display: flex; flex-direction: column; height: 100%; overflow: visible;">
+				<nav role="navigation" class="navbar navbar-default" style="margin-bottom: 0px !important;">
+				<div class="container-fluid">		
+				
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a style="font-size: 16px; line-height: 28px; color: black; text-decoration: none;"><b>Amiga PCB Explorer Custom</b></a>
+					<div id="board-name" style="font-size: 12px; padding-top: 1px;"></div>
+				</div>
+
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul id="amigapcb-controls" class="nav navbar-nav" style="margin-left: 32px; display: block;">				
+						
+						<li>
+							<form class="navbar-form navbar-left">
+								<div class="form-group">
+									<div class="btn-group bootstrap-select" style="width: 70px;">
+										<div class="dropdown-menu open">
+										<ul class="dropdown-menu inner" role="menu">
+											<li data-original-index="0">
+												<a tabindex="0" class="" style="" data-tokens="null">
+													<span class="text">33%</span><span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+											<li data-original-index="1">
+												<a tabindex="0" class="" style="" data-tokens="null">
+													<span class="text">50%</span><span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+											<li data-original-index="2">
+												<a tabindex="0" class="" style="" data-tokens="null">
+													<span class="text">75%</span><span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+											<li data-original-index="3" class="selected"><a tabindex="0" class="" style="" data-tokens="null">
+												<span class="text">100%</span>
+												<span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+											<li data-original-index="4">
+												<a tabindex="0" class="" style="" data-tokens="null">
+													<span class="text">125%</span>
+													<span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+											<li data-original-index="5"><a tabindex="0" class="" style="" data-tokens="null">
+												<span class="text">150%</span>
+												<span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+											<li data-original-index="6">
+												<a tabindex="0" class="" style="" data-tokens="null">
+													<span class="text">200%</span><span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+											<li data-original-index="7">
+												<a tabindex="0" class="" style="" data-tokens="null">
+													<span class="text">300%</span>
+													<span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+											<li data-original-index="8"><a tabindex="0" class="" style="" data-tokens="null">
+												<span class="text">400%</span>
+												<span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+										</ul>
+										</div>
+										<select id="amigapcb-zoom_sel" class="selectpicker" data-width="70px" data-style="btn-default btn" tabindex="-98">
+										<option value="0.33">33%</option>
+										<option value="0.5">50%</option>
+										<option value="0.75">75%</option>
+										<option value="1.0" selected="selected">100%</option>
+										<option value="1.25">125%</option>
+										<option value="1.5">150%</option>
+										<option value="2.0">200%</option>
+										<option value="3.0">300%</option>
+										<option value="4.0">400%</option>
+										</select>
+										
+										</div>
+								</div>
+							</form>
+						</li>
+						
+						<li>
+							<form class="navbar-form navbar-left">
+								<div class="form-group">
+									<div class="btn-group bootstrap-select" style="width: 100px;">
+										<div class="dropdown-menu open">
+										<ul class="dropdown-menu inner" role="menu">
+											<li data-original-index="0">
+												<a tabindex="0" class="" style="" data-tokens="null">
+													<span class="text">Green</span><span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+											<li data-original-index="1">
+												<a tabindex="0" class="" style="" data-tokens="null">
+													<span class="text">Red</span><span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+											<li data-original-index="2">
+												<a tabindex="0" class="" style="" data-tokens="null">
+													<span class="text">Blue</span><span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+											<li data-original-index="3" class="selected"><a tabindex="0" class="" style="" data-tokens="null">
+												<span class="text">Proto</span>
+												<span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+											<li data-original-index="4">
+												<a tabindex="0" class="" style="" data-tokens="null">
+													<span class="text">Dark</span>
+													<span class="glyphicon glyphicon-ok check-mark"></span>
+												</a>
+											</li>
+										</ul>
+										</div>
+										<select id="amigapcb-pcb_sel" class="selectpicker" data-width="100px" data-style="btn-default btn" tabindex="-98">
+										<option value="green" selected="selected">Green</option>
+										<option value="red">Red</option>
+										<option value="blue">Blue</option>
+										<option value="proto">Proto</option>
+										<option value="dark">Dark</option>
+										</select>
+										
+										</div>
+								</div>
+							</form>
+						</li>
+						
+						<li>
+							<form class="navbar-form navbar-left">
+								<div class="form-group">
+									<div id="amigapcb-view-sel" class="btn-group btn-group-justified" data-toggle="buttons" style="width: 120px;">
+										<label id="view-top-label" class="btn btn-default btn active">
+											<input type="radio" name="amigapcb-view" id="view-top" checked="checked">Top
+										</label>
+										<label id="view-bot-label" class="btn btn-default btn">
+											<input type="radio" name="amigapcb-view" id="view-bot">Bottom
+										</label>
+									</div>
+								</div>
+							</form>
+						</li>
+						
+						<li>
+							<form class="navbar-form navbar-left">
+								<div class="form-group">
+									<div class="btn-group bootstrap-select show-tick" style="width: 120px;">
+										<select id="amigapcb-layer_sel" class="selectpicker" multiple="multiple" data-width="120px" data-style="btn-default btn" data-hide-disabled="true" data-selected-text-format="static" title="Layer select" tabindex="-98">
+											<optgroup label="Outer layers">
+											<option id="layer_sel-signal" value="signal" selected="selected">Copper</option>
+											<option id="layer_sel-silk" value="silk" selected="selected">Silkscreen</option>
+											<option id="layer_sel-holes" value="holes" selected="selected">Holes</option>
+											<option id="layer_sel-inner" value="inner" selected="selected">Inner</option>
+										</optgroup>
+										</select>
+										</div>
+								</div>
+							</form>
+						</li>
+					</ul>					
+					<div id="PoPup"></div>
+					<ul class="nav navbar-nav navbar-right clearfix">
+					<li>
+						<label class="toggle-GND">
+  						<input name="super" id="gnd" class="toggle-checkbox" type="checkbox">
+  						<div title="Display GND" class="toggle-switch"></div>
+						</label>
+            		</li>
+					
+					
+							<li>
+							<div class="form-group">
+								<form class="navbar-form" role="search" id="searchform">
+									<div class="form-group">
+										<input title="Search Signal" id="amigapcb-searchbox2" type="text" class="form-control input" placeholder="Search Signal" style="width:180px" onkeyup="SearchSignal();">
+									</div>
+								</form>
+							</div>
+						</li>
+						<li>
+						<div class="form-group">
+								<form class="navbar-form" role="search" id="searchform1">
+									<div class="form-group">
+										<input  title="Search Component" id="amigapcb-searchbox" type="text" class="form-control input" placeholder="Search Component" style="width:180px" onkeyup="SearchComponent();">
+									</div>
+								</form>
+							</div>
+							</li>
+					</ul>
+				</div>
+				</div>		
+			</nav>		
+
+<div id="viewer_div" style="display: flex;">
+<div id="signal_panel"></div>
+
+<div id="viewer_panel" class="panel panel-body panel-default" style="height: 100%; padding: 0px; overflow: scroll; border: none; margin-bottom: 0; visibility:visible; overflow: hidden;">
+
+<div id="searchresult-div"></div>
+<div id="listview"></div>
+<div class="panel panel-info collapse" style="visibility:hidden; display: block; height: auto; top: 42px; left: 500px;" id="listview_content">
+	<table><tbody><tr></tr></tbody></table>
+</div>
+	
+<div id="pcb_div" style="cursor: crosshair; width: 100%; height: 100%; visibility:visible;">
+<div id="selector_contentright" class="panel panel-default" style="display: flex; flex-direction: column; align-items: normal; align-items: center; overflow: auto; ">
+
+<table border=0>
+
+<tr>
+<td>
+<div onclick="LoadPCB_rev('A2000_REV6A')" class="board_select btn btn-default">
+<div class="img_div" style="background-image: url(bootstrap/css/gfx/a2000r6a.png); float: left;"></div><div class="info_div"><p class="board_title">A2000 Rev 6A</p><div>New production revision.</div>
+<p>PCB data availability:</p><div class="board_status_available">Layout</div><div class="board_status_available">Netlist</div><div class="board_status_available">Components</div><div class="ground_available">Ground identified</div>
+</div></div>
+</td>
+
+<tr>
+<td>
+<div onclick="LoadPCB_rev('A500_REV8A')" class="board_select btn btn-default">
+<div class="img_div" style="background-image: url(bootstrap/css/gfx/a500r8a.png); float: left;"></div><div class="info_div"><p class="board_title">A500 Rev 8A</p><div>Last known production revision, stripped-down A500+ board.</div>
+<p>PCB data availability:</p><div class="board_status_available">Layout</div><div class="board_status_available">Netlist</div><div class="board_status_available">Components</div><div class="ground_available">Ground identified</div>
+</div></div>
+</td>
+
+<td>
+<div onclick="LoadPCB_rev('A600_REV2A')" class="board_select btn btn-default">
+<div class="img_div" style="background-image: url(bootstrap/css/gfx/a600r2a.png); float: left;"></div><div class="info_div"><p class="board_title">A600 Rev 2A (beta)</p><div>Rev 2 pre-production board, Gayle -02. ATTENTION: Board layout has several issues, use with caution!</div>
+<div style="position: absolute; bottom: 5px;"><p>PCB data availability:</p><div class="board_status_available">Layout</div><div class="board_status_available">Netlist</div><div class="board_status_available">Components</div><div class="ground_available">Ground identified</div>
+</div></div></div>
+</td>
+</tr>
+
+<tr>
+<td>
+<div onclick="LoadPCB_rev('A1200_REV1D1')" class="board_select btn btn-default">
+<div class="img_div" style="background-image: url(bootstrap/css/gfx/a1200r1d1.png); float: left;"></div><div class="info_div"><p class="board_title">A1200 Rev 1D.1 (beta)</p><div>Common production revision, has half-length clockport header. Mouse port connected via ribbon cable.</div>
+<div style="position: absolute; bottom: 5px;"><p>PCB data availability:</p><div class="board_status_available">Layout</div><div class="board_status_available">Netlist</div><div class="board_status_available">Components</div><div class="ground_available">Ground identified</div>
+</div></div></div>
+</td>
+
+<td>
+<div class="board_select btn btn-default">
+<div onclick="LoadPCB_rev('A1200_REV2B')" class="img_div" style="background-image: url(bootstrap/css/gfx/a1200r2b.png); float: left;"></div><div class="info_div"><p class="board_title">A1200 Rev 2B</p><div>Late production revision, uses 512k x 8 DRAM chips and Budgie Rev.A. Mouse port on separate panel.</div>
+<div style="position: absolute; bottom: 5px;"><p>PCB data availability:</p><div class="board_status_available">Layout</div><div class="board_status_available">Netlist</div><div class="board_status_available">Components</div><div class="ground_available">Ground identified</div>
+</div></div></div>
+</td></tr>
+
+<tr><td>
+<div onclick="LoadPCB_rev('A4000D_REV2')" class="board_select btn btn-default">
+<div class="img_div" style="background-image: url(bootstrap/css/gfx/a4kr2.png); float: left;"></div><div class="info_div"><p class="board_title">A4000D Rev 2</p><div>Early production revision, NiCd battery.</div>
+<div style="position: absolute; bottom: 5px;"><p>PCB data availability:</p><div class="board_status_available">Layout</div><div class="board_status_available">Netlist</div><div class="board_status_available">Components</div>
+</div></div></div>
+</td>
+
+<td>
+<div onclick="LoadPCB_rev('A4000T_REV4')" class="board_select btn btn-default">
+<div class="img_div" style="background-image: url(bootstrap/css/gfx/a4ktr4.png); float: left;"></div><div class="info_div"><p class="board_title">A4000T Rev.4 (beta)</p><div>Late production revision. Board has MAJOR issues(like original data).</div>
+<div style="position: absolute; bottom: 5px;"><p>PCB data availability:</p><div class="board_status_available">Layout</div><div class="board_status_available">Netlist</div><div class="board_status_available">Components</div>
+</td></tr>
+
+<tr><td>
+<div onclick="LoadPCB_rev('CD32_REV3')" class="board_select btn btn-default">
+<div class="img_div" style="background-image: url(bootstrap/css/gfx/cd32r3.png); float: left;"></div><div class="info_div"><p class="board_title">CD32 Rev 3 (beta)</p><div>First production revision.</div>
+<div style="position: absolute; bottom: 5px;"><p>PCB data availability:</p><div class="board_status_available">Layout</div><div class="board_status_available">Netlist</div><div class="board_status_available">Components</div>
+</td>
+
+<td>
+<div onclick="LoadPCB_rev('CD32_REV4_1')" class="board_select btn btn-default">
+<div class="img_div" style="background-image: url(bootstrap/css/gfx/cd32r4.png); float: left;"></div><div class="info_div"><p class="board_title">CD32 Rev 4.1 (beta)</p><div>Late production revision known as "French version". Expansion port pads are not clickable at the moment.</div>
+<div style="position: absolute; bottom: 5px;"><p>PCB data availability:</p><div class="board_status_available">Layout</div><div class="board_status_available">Netlist</div><div class="board_status_available">Components</div>
+</td></tr>
+
+</table>
+
+</div>
+</div>
+<div id="over"></div>
+
+</div>
+</div>
+</div>
+		
+<div id="selector_div" style="display: none;">
+	<div style="text-align: center; font-size: 16pt;">Welcome to the <strong>Amiga PCB Explorer Custom v1.0</strong></div>
+</div>
+
+</body>
+</html>

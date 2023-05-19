@@ -1,0 +1,11 @@
+body{background-color:#FFFFFF;color:Black;text-align:left;font-family:Verdana,Arial,Helvetica,sans-serif;height:100%;padding:1em 1em;}
+table{border:1px solid #000;}
+table tr th{text-align:left;padding:0em 0.4em 0em 0.4em;}
+table tr th{font-size:0.6em;color:#000;text-align:left;background-color:#5555FF}
+table tr th a{text-decoration:none;}
+table tr th a:hover{text-decoration:underline;}
+table tr.even{background-color:#B8B3A9;}
+table tr.odd{background-color:#B0ACA1}
+table tr td{font-size:0.7em;color:#000;text-align:left;}
+table tr td img{padding-right:2px;padding: 1px;}
+a:link {text-decoration:none;}

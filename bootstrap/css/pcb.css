@@ -1,0 +1,706 @@
+.GROUND {
+	fill:			none;
+	stroke:			#5B3C11;
+	stroke-linecap:		round;
+	stroke-linejoin:	round;
+	stroke-opacity:		1.0;
+	fill-opacity:		1.0;
+	stroke-dasharray:	1;
+}
+
+.pads_GROUND {
+	fill:			#5B3C11;
+	cursor:			pointer;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	padding: 5px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+html.wait {
+	cursor: wait;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	overflow: hidden;
+	padding-right: 0 !important;
+}
+.amigapcb-infobox .modal-dialog {
+	min-width: 900px;
+	height: 80%;
+}
+
+.navbar-xs .navbar {
+	min-height:28px; 
+	height: 28px; 
+}
+
+.navbar-xs .navbar .navbar-brand { 
+	padding: 0px 5px; 
+	font-size: 16px; 
+	line-height: 28px; 
+}
+
+.navbar-xs .navbar .navbar-nav > li > a {  
+	padding-top: 0px; 
+	padding-bottom: 0px; 
+	line-height: 28px; 
+}
+
+.navbar-xs .navbar .navbar-nav > li > a:hover { 
+	background-color: #7AA8D0; 
+	border-radius: 3px; 
+}
+
+.navbar-sm .navbar { 
+	min-height:40px; 
+	height: 40px; 
+}
+
+.navbar-sm .navbar .navbar-brand { 
+	padding: 0px 12px; 
+	font-size: 16px; 
+	line-height: 36px; 
+	font-weight: bold; 
+}
+
+.navbar-sm .navbar .navbar-nav > li > a { 
+	padding-top: 2px; 
+	padding-bottom: 0px; 
+	line-height: 36px; 
+}
+
+.navbar-sm .navbar .navbar-header { 
+	padding-top: 0px; 
+	padding-bottom: 0px; 
+	line-height: 36px; 
+}
+
+.input-xs { 
+	height: 22px !important; 
+	padding: 2px 5px !important; 
+	font-size: 12px !important; 
+	line-height: 1.5 !important; 
+	border-radius: 3px !important; 
+}
+
+.caret-right { 
+	display: inline-block; 
+	width: 0; 
+	height: 0; 
+	margin-left: 2px; 
+	vertical-align: middle; 
+	border-left: 4px solid; 
+	border-bottom: 4px solid transparent; 
+	border-top: 4px solid transparent; 
+}
+
+.amigapcb-main_div {
+	width: 100%;
+	display: block;
+}
+
+.amigapcb-modal {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	z-index: 1000;
+}
+
+.amigapcb-popup {
+	position: absolute;
+	width: auto;
+	height: auto;
+	display: none;
+	overflow: hidden;
+	z-index: 2000;
+	padding: 5px;
+	padding-top: 0px;
+	min-width: 150px;
+}
+
+.amigapcb-window {
+	position: absolute;
+	border: 1px solid black !important;
+/*	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) !important; */
+	z-index: 2000;
+}
+
+.amigapcb-windowtitle {
+	background-color: #C1E3FF;
+	padding: 2px 5px 2px 5px !important;
+	font-size: 14px;
+	border-bottom: 1px solid black !important;
+	cursor: move;
+}
+
+.amigapcb-modal-header {
+	padding: 5px !important;
+}
+
+.amigapcb-btn-partinfo {
+	width: 		100%;
+	margin-top: 	5px;
+	display: 	block;
+}
+
+.amigapcb-navbar {
+	margin-top: 3px !important;
+	margin-bottom: 0px !important;
+	border: 1px solid gray;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: gray;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-top: 0;
+}
+table thead tr {
+	white-space: nowrap;
+}
+/*
+.my-form-group {
+	margin-top: 2px;
+	margin-left: 20px;
+}
+
+.my-form-group div {
+	margin-top: -2px;
+}
+*/
+
+.my-label {
+	font-size: 12px;
+	width: auto;
+	text-align: right;
+	display: inline-block;
+	vertical-align: -1px;
+}
+
+.my-table-cell {
+	width: 50%;
+	display: table-cell;
+}
+
+div.amigapcb-infobox-container {
+	padding-right: 10px;
+	line-height: 1.4em;
+	overflow-y: auto;
+	height: auto;
+	max-height: 600px;
+}
+ul.amigapcb-list li {
+	line-height: 1.0em;
+}
+
+#wait_div {
+	position: fixed;
+	width: 35px;
+	height: 35px;
+	z-index: 100;
+	display: none;
+	margin: 15px 15px;
+	background-image: url('gfx/ajax-loader.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+	border: 1px solid black;
+}
+
+#header_menu_div {
+	width: auto;
+	height: 32px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 32px;
+	vertical-align: middle;
+	display: inline-block;
+	padding-top: 3px;
+}
+
+#header_links_div {
+	width: 300px;
+	height: 32px;
+	font-size: 14pt;
+	font-weight: bold;
+	text-align: center;
+	line-height: 32px;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+#viewer_div {
+	width: 100%;
+	height: 100%;
+	display: none;
+	flex-direction: column;
+	margin-bottom: 6px;
+	padding: 2px;
+	clear: both;
+	overflow: visible;
+}
+
+#searchresult-div {
+	display:block;
+	position: absolute;
+	z-index: 200;
+	top: 32px;
+	right: 5px;
+	padding-left: 5px;
+	width: 400px;
+}
+
+#sidebar_panel {
+	display: none;
+	position: absolute;
+	width:360px;
+	height: calc(100% - 24px);
+	margin-right: 2px;
+	padding: 1px;
+	float: left;
+	border: 1px solid grey;
+}
+
+#signal_panel {
+	display: block;
+	width: 100%;
+	height: auto;
+	min-height: 32px;
+	background-color: white;
+	border: 1px solid #e7e7e7;
+	border-radius: 4px;
+	margin-bottom: 3px;
+	clear: both;
+}
+
+.signal_tab {
+	height: 27px;
+	margin-top: 2px;
+	margin-left: 5px;
+	padding-left: 0px !important;
+	padding-top: 5px !important;
+	padding-right: 5px !important;
+	width: 90px;
+	display: inline-block !important;
+}
+
+#accordion_div {
+	overflow-y: auto;
+	display: block;
+	height: calc(100% - 15px);
+	overflow-y: auto;
+}
+
+/*
+#selector_div {
+	margin: 0 auto;
+	width: 100%;
+	height: calc(100% - 140px);
+	clear: left;
+}
+*/
+
+#selector_div {
+	width: 100%;
+	display: block;
+	padding: 2px;
+	clear: both;
+	flex: 1;
+	margin-bottom: 16px;
+	overflow: hidden;
+}
+
+#selector-frame {
+	width: 100%;
+	height: 100%;
+	display: -webkit-flex;
+	display: flex;
+	align-items: stretch;
+}
+
+#selector_left {
+	width: 550px; 
+	min-width: 550px;
+	height: 400px;
+	margin-right: 5px; 
+	padding: 1px; 
+}
+
+#selector_right {
+	padding: 0px; 
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+	margin-left: 20px;
+}
+
+#selector_contentleft {
+	border: 1px solid gray;
+	background-color: #FFFFF2;
+	position: relative;
+	min-height: 450px;
+	padding: 10px;
+}
+
+#selector_contentright {
+	border: none;
+	background-color: white;
+	padding: 10px;
+	height: calc(100% - 96px);
+	overflow-y: auto;
+}
+
+
+#donate_div form {
+	margin: 0 auto;
+	display: block;
+	width: 100px;
+}
+
+#donate_div p {
+	margin: 0 auto;
+	display: block;
+	max-width: 1000px;
+}
+
+table.changelog tr td {
+	vertical-align: top;
+}
+
+div.board_select {
+	margin-bottom: 10px;
+	min-width: 450px;
+	width: 450px;
+	height: 210px;
+	cursor: pointer;
+	padding: 4px;
+	display: block;
+	position: relative;
+	float: left;
+	margin-right: 10px;
+}
+
+div.board_select div.img_div {
+	width: 200px;
+	height: 200px;
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	float: left;
+	border: 1px solid black;
+}
+
+div.board_select div.info_div {
+	float: left;
+	margin-left: 5px;
+	width: calc(100% - 210px);
+	text-align: left;
+	white-space: pre-wrap;
+}
+
+div.board_select p.board_title {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+}
+
+#boardname_div {
+	width: 400px;
+	height: 20px;
+	border-bottom: 1px solid black;
+	font-size: 9pt;
+	font-weight: bold;
+	text-align: center;
+	line-height: 20px;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+div.ground_available {
+	background-image:	url('gfx/tick.png');
+	background-repeat:	no-repeat;
+	background-position:	0px 0px;
+	padding-left:		20px;
+}
+
+div.board_status_available {
+	background-image:	url('gfx/tick.png');
+	background-repeat:	no-repeat;
+	background-position:	0px 0px;
+	padding-left:		20px;
+}
+
+div.board_status_missing {
+	background-image:	url('gfx/cross.png');
+	background-repeat:	no-repeat;
+	background-position:	0px 0px;
+	padding-left:		20px;
+}
+
+#display_footer {
+	position: absolute;
+	bottom: 0px;
+	width: 400px;
+	height: 20px;
+	border-top: 1px solid #707090;
+	font-size: 14px;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+div.controlBox {
+	width: 			100%;
+}
+
+div.controlBox h1 {
+	border-top: 		1px solid #707090;
+	border-bottom: 		1px solid #101030;
+
+	font-size:		10pt;
+	font-weight:		bold;
+	background-color:	#202030;
+	padding:		2px;
+	padding-left:		10px;
+}
+
+#layer_cntrl {
+	display: none
+}
+
+#display_div {
+	display: none;
+	overflow: hidden;
+}
+
+.amigapcb-tooltip {
+	position: absolute;
+	width: auto;
+	height: auto;
+	display: none;
+	overflow: hidden;
+	z-index: 100;
+	opacity: 0.9;
+	padding: 0px;
+	min-width: 100px;
+	z-index: 2000;
+}
+
+.amigapcb-schematic {
+	position: absolute;
+	width: auto;
+	height: auto;
+	display: none;
+	overflow: hidden;
+	z-index: 100;
+	opacity: 1.0;
+	padding: 0px;
+	
+	max-width: 1024px;
+	max-height: 800px;
+}
+
+div.partinfo_div h1 {
+	border-bottom: 		1px solid #101030;
+	margin-top:		0px;
+	font-size:		10pt;
+	font-weight:		bold;
+	background-color:	#202030;
+	padding:		2px;
+	padding-left:		10px;
+}
+
+button.imgbutton {
+	padding: 0px;
+	margin: 0px;
+	width: 20px;
+	height: 20px;
+	border: 1px outset #7070A0;
+	background-color: #101020;
+}
+
+button.imgbutton:active {
+	padding: 0px;
+	margin: 0px;
+	width: 20px;
+	height: 20px;
+	border: 1px inset gray;
+	background-color: #101020;
+}
+
+#zoom_sel {
+	width: 80px;
+}
+
+#color_sel {
+	width: 150px;
+}
+
+table.cntrl_table {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+	font-size: 10pt;
+	width: 100%;
+}
+
+/*****/
+
+#netlist_div {
+	width: 400px;
+	height: 170px;
+	padding: 0px;
+	font-size: 14px;
+	text-align: center;
+	display: none;
+}
+
+#nethead_tbl {
+	margin-bottom: 1px;
+	border: none;
+	font-size: 10pt;
+	width: 320px;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+#nethead_tbl th {
+	background-color: #303050;
+	font-weight: bold;
+	padding: 0px;
+	margin: 0px;
+	text-align: left;
+}
+
+#netscroll_div {
+	width: 340px;
+	height: 80px;
+	padding: 0px;
+	margin: 0px;
+	overflow-y: auto;
+}
+
+#netlist_tbl {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+	font-size: 10pt;
+	width: 320px;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+#netlist_tbl td {
+	padding: 0px;
+	margin: 0px;
+	text-align: left;
+}
+
+tr.selectable {
+	background-color: #101020;
+	cursor: pointer;
+}
+
+tr.selectable:hover {
+	background-color: #707090;
+	cursor: pointer;
+}
+
+.col_layer {
+	width: 50px;
+}
+
+.col_part {
+	width: 80px;
+}
+
+.col_comp {
+	width: 140px;
+}
+
+.col_pin {
+	width: 50px;
+}
+
+/*****/
+
+#netbutton_div {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+	font-size: 10pt;
+	width: 150px;
+}
+
+img.icon {
+	width:			16px;
+	height:			16px;
+	vertical-align:		middle;
+	margin-right:		5px;
+}
+
+.bootbox-dialog_wide {
+	margin:			0 auto;
+	width:			800px;
+	overflow:		scroll;
+}
+
+.amigapcb-row-highlight {
+	background-color: 	#337ab7;
+	color:			white;		
+}
+
+@keyframes blink { 
+	50% { border-color: #FF0000; } 
+}
+
+div#guru_outer {
+	width: calc(100% + 30px);
+	margin: 0px;
+	margin-left: -5px;
+	margin-right: -5px;
+	padding: 10px;
+	background-color: black;
+	z-index: 9900;
+	display: none;
+}
+div#guru {
+	border: 7px solid black;
+	padding: 10px;
+	margin: 5px;
+	background-color: black;
+	width: calc(100% - 30px);
+	height: 100px;
+	animation: blink 1s step-end 5s alternate;
+	font-size: 14pt;
+	font-weight: bold;
+	font-family: courier;
+	color: red;
+	text-align: center;
+}
+
+div#guru_modal {
+	margin: -5px;
+	position:absolute;
+	top: 130px;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.75);
+	z-index:9000;
+	display: none;
+}
+
+.btn span.glyphicon {    			
+	opacity: 0;				
+}
+.btn.active span.glyphicon {				
+	opacity: 1;				
+}
+span {
+    	display: none;
+}

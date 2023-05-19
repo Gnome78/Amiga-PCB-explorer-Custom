@@ -1,0 +1,178 @@
+/*Version 4.6b */
+
+path.trace_hi {
+	fill:			none;
+	stroke:			#F0F020 !important;
+	stroke-linecap:		round;
+	stroke-linejoin:	round;
+	stroke-opacity:		1.0;
+	fill-opacity:		1.0;
+}
+
+#pcb_view {
+	background-color:	#103010;
+}
+
+.pcb_background {
+	background-color:	#107010;
+}
+
+.frame {
+	fill:			#107010;
+	stroke:			black;
+	stroke-linejoin:	round;
+}
+	
+.board {
+	fill:			none;
+	stroke:			#076707;
+	stroke-linecap:		round;
+	stroke-linejoin:	round;
+	stroke-opacity:		1.0;
+	fill-opacity:		1.0;
+}
+
+rect.board {
+	fill:			#107010;
+}
+
+circle.board {
+	fill:			#076707;
+}
+
+path.draw {
+	fill:			none;
+	stroke:			#30c030;
+	stroke-linecap:		round;
+	stroke-linejoin:	round;
+	stroke-opacity:		1.0;
+	fill-opacity:		1.0;
+}
+
+path.pads {
+	stroke-opacity:		1.0;
+	fill-opacity:		1.0;
+	stroke:			#D0D0D0;
+	fill:			#D0D0D0;
+}
+
+circle.draw {
+	fill:			#30c030;
+	stroke-width:		72;
+}
+
+circle.hi {
+	fill:			#FAFA20;
+	stroke-width:		72;
+}
+
+rect.draw {
+	fill:			#30c030;
+	stroke-width:		72;
+}
+
+circle.draw2 {
+	fill:			#209020;
+	stroke-width:		72;
+}
+
+rect.draw2 {
+	fill:			#209020;
+	stroke-width:		72;
+}
+
+path.draw2 {
+	fill:			none;
+	stroke:			#209020;
+	stroke-linecap:		round;
+	stroke-linejoin:	round;
+	stroke-opacity:		1.0;
+	fill-opacity:		1.0;
+}
+
+.trace_hi2 {
+	fill:			none;
+	stroke:			#C0C020;
+	stroke-linecap:		round;
+	stroke-linejoin:	round;
+	stroke-opacity:		1.0;
+	fill-opacity:		1.0;
+	stroke-dasharray:	1,4;
+}
+
+.trace_xray {
+	fill:			none;
+	stroke:			#FFFF30 !important;
+	stroke-linecap:		round;
+	stroke-linejoin:	round;
+	stroke-opacity:		0.6;
+	fill-opacity:		0.6;
+	stroke-dasharray:	4,4;
+}
+
+.pads {
+	stroke-opacity:		1.0;
+	fill-opacity:		1.0;
+	fill:			#D0D0D0;
+	pointer-events:		all;
+}
+
+.pads_hi {
+	fill:			#FAFA20;
+	cursor:			pointer;
+}
+
+.selhover {
+	fill:			#FFFF00;
+	cursor:			pointer;
+}
+
+.pads_xray {
+	fill:			#FFFF30;
+	stroke-linecap:		round;
+	stroke-linejoin:	round;
+	stroke-opacity:		0.6;
+	fill-opacity:		0.4;
+	stroke-dasharray:	4,4;
+}
+
+.pads_click {
+	stroke-opacity:		0.0;
+	fill-opacity:		0.0;
+	fill:			#FF00FF;
+	cursor:			crosshair;
+}
+
+.silk {
+	fill:			none;
+	stroke:			#FFFFFF;
+	stroke-linecap:		round;
+	stroke-linejoin:	round;
+	stroke-opacity:		1.0;
+	fill-opacity:		0.0;
+}
+
+.svghidden {
+	fill:			none !important;
+	stroke-opacity:		0.0 !important;
+	fill-opacity:		0.0 !important;
+}
+
+@keyframes silk_blink {
+	0%	{ stroke: #FF0000; fill: none;    fill-opacity: 0.25; }
+	50%	{ stroke: #FFFFFF; fill: #000000; fill-opacity: 0.25; }
+	100%	{ stroke: #FF0000; fill: none;    fill-opacity: 0.25; }
+}
+
+g path.silk_blink {
+	animation: silk_blink 1s linear infinite;
+}
+
+path.draw_connect {
+	fill:			none;
+	stroke:			#D0D0D0;
+	stroke-linecap:		round;
+	stroke-linejoin:	round;
+	stroke-opacity:		1.0;
+	fill-opacity:		1.0;
+}
