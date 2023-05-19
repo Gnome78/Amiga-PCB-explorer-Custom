@@ -29,6 +29,7 @@
 //4.5	Add 'SIDE' in traceline function and new value for tracing or not, GND : TRACEGND. Some modifications into function(s) to include 'null' for lineTop and lineBot and a lot of modification in All Database.
 //4.6	Issue in Zoom and GoToLayer function (don't work well to correct number Zoom), Corrected.
 //4.6b	ChangeStyle function now 'add' trace_hi and not 'change to'. CleanAllPreTrace function now 'remove' a class and not 'change to'. Add button 'Display GND' or not.
+//4.7	Retreive Zoom and Side value and use it. Each loading, set to 'true' all options in 'layers selected'.
 //**************************************************************************************************************************************************
 
 //*********************************************************************
@@ -38,11 +39,26 @@
 
 var timer;							// Init value
 var timeoutPreTrace = 250; 			// Timer before pre-tracing
-var SIDE="TOP";						// Set 'SIDE' to TOP for starting
-//var TRACEGND="true";				// PRE-trace and Trace GND true or false
+var SIDE="TOP";						// Set 'SIDE' to TOP for starting  [no more used]
 
 $(document).ready(function() {
-GoToLayer("BASE");					// And display layer 'TOP'.
+//Retreive configurations and set value
+//**************************************************************************
+var Zoom = document.getElementById("amigapcb-zoom_sel").value;
+var SIDEelect = document.getElementById("view-top-label").classList;
+if(SIDEelect.contains("active")){ SIDE = "TOP" } else { SIDE = "BOT" }
+
+//Force set to true all 'LayerSelect'
+document.getElementById("layer_sel-signal").selected = "true";
+document.getElementById("layer_sel-signal").selected = "true";
+document.getElementById("layer_sel-silk").selected = "true";
+document.getElementById("layer_sel-holes").selected = "true";
+document.getElementById("layer_sel-inner").selected = "true";
+$('#amigapcb-layer_sel').selectpicker('refresh');
+//**************************************************************************
+//GoToLayer("BASE");					// Start as 'BASE' display (aka TOP). [no more used]
+GoToLayer(SIDE);
+ZoOm(Zoom);
 
 document.onmousemove = function(e) { xMousePos = e.clientX + window.pageXOffset; yMousePos = e.clientY + window.pageYOffset };	//retreive coord. of mouse.
 //*******************************************************************************************
