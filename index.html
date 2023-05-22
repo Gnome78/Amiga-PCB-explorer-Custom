@@ -25,6 +25,7 @@
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="bootstrap/js/bootstrap-dialog.min.js"></script>
 	<script src="bootstrap/js/base.js"></script>
+	<script src='bootstrap/js/toolcool-color-picker.min.js'></script>
 
 </head>
 
@@ -66,6 +67,22 @@
 			</div>
 		</div>
 		
+		<div id="amigapcb-prefs-window" class="modal fade" tabeindex="-1" role="dialog" style="display: none;">
+			<div class="modal-dialog" role="document" style="top:calc(50% - 150px); width: 400px;">
+				<div class="modal-content">
+					<div class="modal-header amigapcb-modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+						<h4 class="modal-title"><b>Settings</b></h4>
+					</div>
+					<div id="Setting" class="modal-body"></div>
+					<div class="modal-footer">
+						<button id="SettingDefault" type="button" class="btn btn-default" data-dismiss="modal">Default</button>
+						<button id="SettingClose" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 				<div style="display: flex; flex-direction: column; height: 100%; overflow: visible;">
 				<nav role="navigation" class="navbar navbar-default" style="margin-bottom: 0px !important;">
 				<div class="container-fluid">		
@@ -78,6 +95,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a style="font-size: 16px; line-height: 28px; color: black; text-decoration: none;"><b>Amiga PCB Explorer Custom</b></a>
+					&nbsp;&nbsp;<img class="settingsMe" src="bootstrap/css/gfx/setting.png">
 					<div id="board-name" style="font-size: 12px; padding-top: 1px;"></div>
 				</div>
 
@@ -219,9 +237,9 @@
 						</li>
 						
 						<li>
-							<form class="navbar-form navbar-left">
+					<form class="navbar-form navbar-left">
 								<div class="form-group">
-									<div class="btn-group bootstrap-select show-tick" style="width: 120px;">
+									<div id="layer_choice" class="btn-group bootstrap-select show-tick" style="width: 120px;">
 										<select id="amigapcb-layer_sel" class="selectpicker" multiple="multiple" data-width="120px" data-style="btn-default btn" data-hide-disabled="true" data-selected-text-format="static" title="Layer select" tabindex="-98">
 											<optgroup label="Outer layers">
 											<option id="layer_sel-signal" value="signal" selected="selected">Copper</option>
