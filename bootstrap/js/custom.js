@@ -30,6 +30,7 @@
 //4.6	Issue in Zoom and GoToLayer function (don't work well to correct number Zoom), Corrected.
 //4.6b	ChangeStyle function now 'add' trace_hi and not 'change to'. CleanAllPreTrace function now 'remove' a class and not 'change to'. Add button 'Display GND' or not.
 //4.7	Retreive Zoom and Side value and use it. Each loading, set to 'true' all options in 'layers selected'.
+//4.8	Add a Setting box to change the colors palette.
 //**************************************************************************************************************************************************
 
 //*********************************************************************
@@ -67,8 +68,8 @@ $("#amigapcb-pcb_sel").on("change", function() {				//Catch Change style button
    $('head').append('<link rel="stylesheet" type="text/css" href="backend/stylesheet.php?style='+Style+'">');
 });
 
-$("#amigapcb-zoom_sel").on("change", function() { ZoOm() })		//Catch zoom button
-$("#testbutton").on("click", function() { TestButton() })		// button, just fort testing
+$("#amigapcb-zoom_sel").on("change", function() { ZoOm() })		//Catch zoom button.
+$(".settingsMe").on("click", function() { Settings() })		   // Catch setting 'button'.
 
 //**********************************************************************************************************************************
 $("#view-bot").on("change", function() { var pcbrev= $('#pcb_view').attr("pcbrev"); GoToLayer("BOT"); });	//Catch Side select BOT
@@ -1108,23 +1109,92 @@ for (var i = 0; i < tab_elementFocus.length; i++) {
 }	// End function
 //**************************************************************************************************************************************************************************************************
 //**************************************************************************************************************************************************************************************************
-function TestButton() {
-//var ww=window.open( "", "Test_Window");
-//ww.document.writeln("<html><pre>Seek listeLine : "+listeLine+"</pre></html>");
+function Settings() {
+try {
+//Retreive color already defined
+//******************************
+var col0 = ListCol[0].color; var col1 = ListCol[1].color;
+var col2 = ListCol[2].color; var col3 = ListCol[3].color;
+var col4 = ListCol[4].color; var col5 = ListCol[5].color;
+var col6 = ListCol[6].color; var col7 = ListCol[7].color;
+var col8 = ListCol[8].color; var col9 = ListCol[9].color;
+var col10 = ListCol[10].color; var col11 = ListCol[11].color;
+var col12 = ListCol[12].color; var col13 = ListCol[13].color;
+var col14 = ListCol[14].color; var col15 = ListCol[15].color;
 
-    let x = window.innerWidth/2;
-    let y = window.innerHeight/2;
-    var  elem = document.elementFromPoint(x, y);
-    // well, the goal of the game is to get ID of the SVG element which is in the middle of the screen.
-    // Except that... Sometimes there is something, sometimes not...
-    // You have to search 'around' until you find an ID (to zoom on it later)
-    // Tried with the code below BUT... Add +10 loop doesn't seem to work.
-    //
-	while (elem == "") { var  elem = document.elementFromPoint(x, y); let x = x+10; let y = y+10; console.log(elem.id); }
+
+//Display new window and fade base page
+document.getElementById("amigapcb-prefs-window").style = 'display: block; padding-right: 17px;'; 
+document.getElementById("amigapcb-prefs-window").classList = "modal fade in";
+$('body').append('<div id="fadebot" class="modal-backdrop fade in"></div>');
+
+//Create the html tag and push it
+LetterSetting = '<table class="center" border=0><tr>\
+<td><toolcool-color-picker color="'+col0+'" id="color-picker-0"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col1+'" id="color-picker-1"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col2+'" id="color-picker-2"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col3+'" id="color-picker-3"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col4+'" id="color-picker-4"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col5+'" id="color-picker-5"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col6+'" id="color-picker-6"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col7+'" id="color-picker-7"></toolcool-color-picker></td>\
+</tr><tr>\
+<td><toolcool-color-picker color="'+col8+'" id="color-picker-8"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col9+'" id="color-picker-9"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col10+'" id="color-picker-10"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col11+'" id="color-picker-11"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col12+'" id="color-picker-12"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col13+'" id="color-picker-13"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col14+'" id="color-picker-14"></toolcool-color-picker></td>\
+<td><toolcool-color-picker color="'+col15+'" id="color-picker-15"></toolcool-color-picker></td>\
+</tr></table>';
+
+$("#Setting").html(LetterSetting);
+
+//Catch Default button
+$("#SettingDefault").on("click", function() { 
+ListCol[0].color = '#ACD9E5';ListCol[1].color = '#800000';
+ListCol[2].color = '#FF80FF';ListCol[3].color = '#827E17';
+ListCol[4].color = '#00137E';ListCol[5].color = '#7E087E';
+ListCol[6].color = '#018180';ListCol[7].color = '#C0C0C0';
+ListCol[8].color = '#808080';ListCol[9].color = '#FF0000';
+ListCol[10].color = '#38FE39';ListCol[11].color = '#FFFB38';
+ListCol[12].color = '#0031FB';ListCol[13].color = '#FB1CFA';
+ListCol[14].color = '#06FFFF';ListCol[15].color = '#F96B1E';
+
+document.getElementById("amigapcb-prefs-window").style = 'display: none;';
+document.getElementById("amigapcb-prefs-window").classList = "modal fade";
+$("#fadebot").remove();
+})
+
+
+//Catch Close button
+$("#SettingClose").on("click", function() { 
 	
-	BlinkThis(elem.id);
-    
-    
+	//Get RGB value and set it
+	const colorPicker0 = document.getElementById('color-picker-0').hex; const colorPicker1 = document.getElementById('color-picker-1').hex;
+	const colorPicker2 = document.getElementById('color-picker-2').hex; const colorPicker3 = document.getElementById('color-picker-3').hex;
+	const colorPicker4 = document.getElementById('color-picker-4').hex; const colorPicker5 = document.getElementById('color-picker-5').hex;
+	const colorPicker6 = document.getElementById('color-picker-6').hex; const colorPicker7 = document.getElementById('color-picker-7').hex;
+	const colorPicker8 = document.getElementById('color-picker-8').hex; const colorPicker9 = document.getElementById('color-picker-9').hex;
+	const colorPicker10 = document.getElementById('color-picker-10').hex; const colorPicker11 = document.getElementById('color-picker-11').hex;
+	const colorPicker12 = document.getElementById('color-picker-12').hex; const colorPicker13 = document.getElementById('color-picker-13').hex;
+	const colorPicker14 = document.getElementById('color-picker-14').hex; const colorPicker15 = document.getElementById('color-picker-15').hex;
+	ListCol[0].color = colorPicker0; ListCol[1].color = colorPicker1;
+	ListCol[2].color = colorPicker2; ListCol[3].color = colorPicker3;
+	ListCol[4].color = colorPicker4; ListCol[5].color = colorPicker5;
+	ListCol[6].color = colorPicker6; ListCol[7].color = colorPicker7;
+	ListCol[8].color = colorPicker8; ListCol[9].color = colorPicker9;
+	ListCol[10].color = colorPicker10; ListCol[11].color = colorPicker11;
+	ListCol[12].color = colorPicker12; ListCol[13].color = colorPicker13;
+	ListCol[14].color = colorPicker14; ListCol[15].color = colorPicker15;
+	
+	document.getElementById("amigapcb-prefs-window").style = 'display: none;';
+	document.getElementById("amigapcb-prefs-window").classList = "modal fade";
+	$("#fadebot").remove();
+	})
+//End Catch
+	} catch (err) { Guru("Error in Settings function") }
 }
 //**************************************************************************************************************************************************************************************************
 //**************************************************************************************************************************************************************************************************
