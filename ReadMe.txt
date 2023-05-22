@@ -1,3 +1,5 @@
+![logo](Snapshot.jpg)
+
 Hi there !
 Amiga PCB Explorer Custom is a tool for amiga computer repair.
 It's based on the project of the same name available only in 'surf mode' on internet, no source available, no update.
