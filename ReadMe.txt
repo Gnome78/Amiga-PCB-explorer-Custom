@@ -1,5 +1,3 @@
-![logo](Snapshot.jpg)
-
 Hi there !
 Amiga PCB Explorer Custom is a tool for amiga computer repair.
 It's based on the project of the same name available only in 'surf mode' on internet, no source available, no update.
@@ -22,7 +20,7 @@ Of course you have to create the databases and import the data from this reposit
 You will have to modify the ConnectOnceToMyDB.php file in order to indicate the name of the server, the name of the user and the password previously created to access these data.
 
 It took me a lot of time and energy to collect and rewrite from scratch this tool.
-I still work on it and correct and improve the code from time to time.
+I still work on it and correct/improve the code from time to time.
 
 Now, it's up to you to bring your touch to the project.
 
@@ -38,4 +36,13 @@ LINE0 always corresponds to a 'null' copper.
 LINE1 always corresponds to GROUNDs (all ground, video, audio, genereic gnd).
 
 
-More information, soon :)
+PCB available :
+- A2000 Rev6A
+- A500 Rev8A
+- A600 Rev2A
+- A1200 Rev1D
+- A1200 Rev2B
+- A4000 Rev2
+- A4000 Rev4
+- CD32 Rev3
+- CD32 Rev4.1
