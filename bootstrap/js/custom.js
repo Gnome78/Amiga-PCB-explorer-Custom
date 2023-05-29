@@ -31,6 +31,7 @@
 //4.6b	ChangeStyle function now 'add' trace_hi and not 'change to'. CleanAllPreTrace function now 'remove' a class and not 'change to'. Add button 'Display GND' or not.
 //4.7	Retreive Zoom and Side value and use it. Each loading, set to 'true' all options in 'layers selected'.
 //4.8	Add a Setting box to change the colors palette.
+//4.9	Add new function, BlinkAll. (click under search div table, TH element)
 //**************************************************************************************************************************************************
 
 //*********************************************************************
@@ -727,6 +728,16 @@ try {
 
 	//*******************************************************************************************************************
 	//*******************************************************************************************************************
+	// Handler to detect a click on a <TH> of the Search Result display DIV
+	$(".divClass th").on("click", function() { 
+	var table = document.getElementById("list_view");
+	var cells = table.getElementsByTagName("tr");
+	var status = "";
+for (var i = 0; i < cells.length; i++) { statusNow = cells[i].getAttribute("data-id"); if (statusNow) { status = status + "," + statusNow } }
+	BlinkAll(status);
+			});
+	
+	
 	// Handler to detect a click on a <TR> of the Search Result display DIV
 	$(".divClass tr").on("click", function() {
 	
@@ -1106,6 +1117,19 @@ for (var i = 0; i < tab_elementFocus.length; i++) {
 		document.getElementById(tab_elementFocus[0]).scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
 }}
 	} catch (err) { Guru("Error in Unblink function") }
+}	// End function
+//**************************************************************************************************************************************************************************************************
+//**************************************************************************************************************************************************************************************************
+function BlinkAll(elementFocus) {
+try {
+var tab_elementFocus = elementFocus.split(',');
+
+for (var i = 0; i < tab_elementFocus.length; i++) {
+	if(tab_elementFocus[i] ) {
+		//Set classe to blink, each array.
+		if ( document.getElementById(tab_elementFocus[i]) ) { document.getElementById(tab_elementFocus[i]).classList= "silk_blink"; }
+}}
+} catch (err) { Guru("Error in BlinkAll function") }
 }	// End function
 //**************************************************************************************************************************************************************************************************
 //**************************************************************************************************************************************************************************************************
