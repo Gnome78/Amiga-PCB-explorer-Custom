@@ -46,3 +46,5 @@ PCB available :
 - A4000 Rev4
 - CD32 Rev3
 - CD32 Rev4.1
+
+More informations in the wiki project page.
