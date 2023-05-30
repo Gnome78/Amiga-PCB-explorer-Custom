@@ -1,5 +1,5 @@
 <?php
-//Version 4.8
+//Version 4.9
 //*************
 
 $GLOBALS['dbname'] = $_POST['PCBREV']; 
@@ -121,7 +121,7 @@ switch($_POST['comm'])
 	echo "<div class=\"table-responsive\" style=\"max-height: 250px; width: 100%;\">";
 	echo "<table class=\"divClass table table-bordered table-hover\" style=\"margin-bottom: 1px;\">";		//onclick='SeeID()'
 	echo "<thead>";
-	echo "<tr title=\"click here to select all element\">";
+	echo "<tr bgcolor=\"#DDFFDD\" title=\"click here to select all elements\">";
 	echo "<th>Layer</th>";
 	echo"<th>Location</th>";
 	echo "<th>Type</th>";
